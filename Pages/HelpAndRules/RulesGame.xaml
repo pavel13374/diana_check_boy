@@ -1,0 +1,75 @@
+﻿<Page x:Class="Морской_бой.Pages.HelpAndRules.RulesGame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Морской_бой.Pages.HelpAndRules"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="">
+
+    <Grid>
+<!--Поле с правилами-->
+        <GroupBox x:Name="TextRules" BorderBrush="Aqua" HorizontalAlignment="Center" Height="290" Visibility="Visible">
+
+            <GroupBox.Header>
+
+                <TextBlock Style="{StaticResource Text}" TextAlignment="Center">Правила игры</TextBlock>
+                
+            </GroupBox.Header>
+            
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+                <TextBlock Width="300" 
+           Height="130" 
+           TextWrapping="Wrap" 
+           Foreground="White"
+           Margin="20,0,0,0">  <!-- Left, Top, Right, Bottom -->
+    «Морской бой» — игра для двух участников, в которой игроки по очереди атакуют корабли, находящиеся на поле соперника. Если у соперника по указанным координатам имеется корабль, то корабль или его часть «топится», а попавший получает право сделать ещё один ход. Цель игрока — первым поразить все корабли противника.
+                </TextBlock>
+                <Button x:Name="ExampleButton" Style="{StaticResource MenuButton}"  Click="ExampleButton_Click">Показать пример</Button>
+                <Button x:Name="BackMenuButton" Style="{StaticResource MenuButton}" Click="BackMenuButton_Click">Назад</Button>
+                
+            </StackPanel>
+            
+        </GroupBox>
+<!--Поле с примером-->
+        <GroupBox x:Name="Example" BorderBrush="Aqua" HorizontalAlignment="Center" Height="350" Width="500" Visibility="Collapsed">
+
+            <GroupBox.Header>
+
+                <TextBlock Style="{StaticResource Text}" TextAlignment="Center">Пример игры</TextBlock>
+
+            </GroupBox.Header>
+
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" x:Name="FirstField" Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock Style="{StaticResource Text}" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap">Поле кораблей противника</TextBlock>
+                        <UniformGrid x:Name="ShipsPlayer" Rows="10" Columns="10"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" x:Name="SecondField" Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock Style="{StaticResource Text}" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" >Поле подбитых кораблей</TextBlock>
+                        <UniformGrid x:Name="PlayerHitsField" Rows="10" Columns="10"/>
+
+                    </StackPanel>
+
+                </Grid>
+                
+                <TextBlock Style="{StaticResource Text}" FontSize="16">У противника поставлен корабль по координатам 1:1</TextBlock>
+                <Button Style="{StaticResource MenuButton}" x:Name="BackButton" Click="BackButton_Click">Назад</Button>
+                
+            </StackPanel>
+
+        </GroupBox>
+
+    </Grid>
+</Page>
